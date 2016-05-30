@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="org.idempiere.process.ImportBudget"
+         name="org.idempiere.process.ImportBudget"
+         point="org.adempiere.base.Process">
+      <process
+            class="org.idempiere.process.ImportBudget">
+      </process>
+   </extension>
+
+</plugin>
