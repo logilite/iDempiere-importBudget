@@ -1,0 +1,2 @@
+syntax: glob
+org.idempiere.importbudget/bin/*
