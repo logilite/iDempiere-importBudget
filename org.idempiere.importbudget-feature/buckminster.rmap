@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rm:rmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:maven="http://www.eclipse.org/buckminster/MavenProvider-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+  <rm:locator pattern="com\.logilite\.syncservice(\..+)?" searchPathRef="workspace.bundle.project"  failOnError="false"/>
+  <rm:locator pattern="org\.logilite\.syncservice(\..+)?" searchPathRef="workspace.bundle.project"  failOnError="false"/>
+  <rm:locator pattern="org.eclipse.jetty.osgi-servlet-api" searchPathRef="org.adempiere.server"  failOnError="false"/>
+  <rm:locator pattern="com.fasterxml.jackson.core.jackson-annotations" searchPathRef="org.adempiere.server"  failOnError="false"/>
+  <rm:locator pattern="com.sun.mail.javax.mail" searchPathRef="org.adempiere.server"  failOnError="false"/>
+    <rm:locator pattern="com\.logilite\.sms(\..+)?" searchPathRef="com.logilite.sms"  failOnError="false"/>
+  <rm:locator pattern="org\.logilite\.sms(\..+)?" searchPathRef="com.logilite.sms"  failOnError="false"/>
+  <rm:locator pattern="com\.logilite\.search(\..+)?" searchPathRef="com.logilite.dms"  failOnError="false"/>
+  <rm:locator pattern="^org\.idempiere\.dms" searchPathRef="com.logilite.dms"  failOnError="false"/>
+  <rm:locator searchPathRef="org.adempiere.server" failOnError="false"/>
+  <rm:locator searchPathRef="workspace.bundle.jar" failOnError="false"/>
+  <rm:locator searchPathRef="workspace.bundle.project" failOnError="false"/>
+  <rm:locator searchPathRef="workspace.feature.project"/>
+  <rm:searchPath name="org.adempiere.server">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="file://///var/lib/jenkins/jobs/logiliteERP_7_1/workspace/org.idempiere.p2/target/repository/"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="workspace.bundle.project">
+    <rm:provider componentTypes="osgi.bundle" readerType="local">
+      <rm:uri format="{0}/{1}">
+        <bc:propertyRef key="workspace.root"/>
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+   <rm:searchPath name="com.logilite.sms">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="file://///var/lib/jenkins/jobs/sms/workspace/buckminster.output/com.logilite.sms_1.0.0-eclipse.feature/site.p2/"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="com.logilite.dms">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="file://///var/lib/jenkins/jobs/DMS-4_1/workspace/buckminster.output/com.logilite.dms_1.0.1-eclipse.feature/site.p2/"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="workspace.bundle.jar">
+    <rm:provider componentTypes="osgi.bundle" readerType="url" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="file:///{0}/lib/plugins/{1}_{2}.jar">
+	    <bc:replace>
+      	   <bc:propertyRef key="workspace.root"/>
+           <bc:match pattern="\s" replacement="%20" />
+    	</bc:replace>
+        <bc:propertyRef key="buckminster.component"/>
+        <bc:propertyRef key="jar.version"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="workspace.feature.project">
+    <rm:provider componentTypes="eclipse.feature" readerType="local">
+      <rm:uri format="{0}/{1}-feature">
+        <bc:propertyRef key="workspace.root"/>
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+</rm:rmap>  
+

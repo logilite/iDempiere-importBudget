@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <feature 
+    	url="features/org.idempiere.importbudget.feature_7.1.0.qualifier.jar" 
+    	id="org.idempiere.importbudget.feature" version="7.1.0.qualifier">
+	    <category name="org.idempiere.importbudget"/>
+    </feature>
+</site>
